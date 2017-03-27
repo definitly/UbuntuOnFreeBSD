@@ -1,0 +1,73 @@
+#!/bin/sh
+
+
+UBUNTU_VERSION=16.10
+ubuntu=ubuntu_$UBUNTU_VERSION"_amd64"
+
+
+       
+      
+       if ! [ -z "$(mount | grep linprocfs)" ]; then 
+       
+           doas   umount  /compat/linux/proc
+
+      fi
+                 
+           
+
+
+
+ 
+
+    if  [ -z "$(mount | grep nullfs )" ]; then 
+       
+       doas mount -t nullfs /compat/$ubuntu/ /compat/linux/
+
+    fi
+
+
+    if  [ -z "$(mount | grep linprocfs)" ]; then 
+       
+       doas mount -t linprocfs linproc /compat/linux/proc
+
+    fi
+
+      
+   if  [ -z "$(mount | grep tmpfs)" ]; then
+       
+  
+     doas mount -t tmpfs tmpfs /compat/linux/var/run/shm
+                       
+   fi
+
+
+
+    if  [ -z "$(mount | grep linsysfs)" ]; then
+       
+       doas mount -t linsysfs linsys /compat/linux/sys
+                       
+   fi
+
+
+
+       
+       doas chmod 1777 /compat/linux/var/run/shm
+
+  
+
+
+          cd game
+          ./"Kona.x86_64"
+   
+
+       doas umount -f  /compat/linux/proc
+       doas umount -f  /compat/linux/var/run/shm
+       doas umount -f  /compat/linux/sys
+       doas umount -f  /compat/linux
+
+      if  [  -z "$(mount | grep linprocfs )" ]; then
+          doas mount -t linprocfs linproc /compat/linux/proc
+      fi
+
+
+       
