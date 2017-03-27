@@ -2,7 +2,8 @@
 
 
 UBUNTU_VERSION=16.10
-ubuntu=ubuntu_$UBUNTU_VERSION"_amd64"
+ARCH=i386
+ubuntu=ubuntu_$UBUNTU_VERSION"_"$ARCH
 
 
        
@@ -56,8 +57,8 @@ ubuntu=ubuntu_$UBUNTU_VERSION"_amd64"
   
 
 
-          cd game
-          ./"Kona.x86_64"
+          
+          ./
    
 
        doas umount -f  /compat/linux/proc
