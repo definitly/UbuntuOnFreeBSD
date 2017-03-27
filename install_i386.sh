@@ -54,22 +54,37 @@ if ! [ -d  "$tar"  ]; then
                  done
 
 
-         rm  -R         $ubuntu/boot $ubuntu/dev $ubuntu/etc/fonts $ubuntu/home   $ubuntu/root ubuntu/tmp \
+         rm  -R         $ubuntu/boot $ubuntu/dev $ubuntu/etc/fonts $ubuntu/home   $ubuntu/root $ubuntu/tmp \
                         $ubuntu/var/log  $ubuntu/var/tmp 
          mkdir -p       $ubuntu/var/run/shm
 
 
 
-                      if ! [ -f "tar/libflashsupport.so" ];then 
+                      if ! [ -f "$tar/libflashsupport.so" ];then 
 
-                               cd tar && fetch ftp://ftp.tw.freebsd.org/pub/FreeBSD/FreeBSD/distfiles/flashplugin/9.0r48/libflashsupport.so && cd ../
+                               cd $tar && fetch ftp://ftp.tw.freebsd.org/pub/FreeBSD/FreeBSD/distfiles/flashplugin/9.0r48/libflashsupport.so && cd ../
    
                            fi
 
- 
-         cp tar/libflashsupport.so ubuntu/usr/lib
 
-         ln -s bash ubuntu/bin/sh
+                if ! [ -f "$tar/linux-skype_oss_wrapper-0.1.1.txz" ]; then 
+
+                                 cd $tar && fetch http://pkg.freebsd.org/freebsd:11:x86:32/latest/All/linux-skype_oss_wrapper-0.1.1.txz && cd ../
+
+                          fi
+
+                                   tar xf $tar/linux-skype_oss_wrapper-0.1.1.txz  -C $ubuntu/usr/lib    -s ",/.*/,,g" "*/libpulse.so.0"
+
+
+
+
+
+
+
+ 
+         cp $tar/libflashsupport.so $ubuntu/usr/lib
+
+         ln -s bash $ubuntu/bin/sh
 
 
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib

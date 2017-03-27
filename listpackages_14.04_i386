@@ -22,6 +22,11 @@ pool/main/libx/libxcb/libxcb-glx0_1.10-2ubuntu1_i386.deb
 pool/main/libx/libxcb/libxcb-dri2-0_1.10-2ubuntu1_i386.deb
 pool/main/libx/libxcb/libxcb-dri3-0_1.10-2ubuntu1_i386.deb
 pool/main/j/jbigkit/libjbig0_2.0-2ubuntu4.1_i386.deb
+pool/main/libg/libgnomeui/libgnomeui-0_2.24.5-3_i386.deb
+pool/main/libb/libbonoboui/libbonoboui2-0_2.24.5-0ubuntu3_i386.deb
+pool/main/libg/libgnomecanvas/libgnomecanvas2-0_2.30.3-2_i386.deb
+
+
 pool/main/n/ncurses/libtinfo5_5.9+20140118-1ubuntu1_i386.deb
 pool/main/x/xdg-utils/xdg-utils_1.1.0~rc1-2ubuntu7_all.deb
 pool/main/x/xft/libxft2_2.2.0-3ubuntu2_i386.deb  
