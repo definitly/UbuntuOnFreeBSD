@@ -60,7 +60,7 @@ if ! [ -d  "$tar"  ]; then
                         $ubuntu/var/log  $ubuntu/var/tmp 
          mkdir -p       $ubuntu/var/run/shm
          rm             $ubuntu/lib64/ld-linux-x86-64.so.2
-         ln -s          ../lib/x86_64-linux-gnu/$(ls | grep ld-2.)  $ubuntu/lib64/ld-linux-x86-64.so.2
+         ln -s          ../lib/x86_64-linux-gnu/$(ls $ubuntu/lib/x86_64-linux-gnu | grep ld-2.)  $ubuntu/lib64/ld-linux-x86-64.so.2
 
                  if ! [ -f "$tar/libflashsupport.so" ];then 
 
