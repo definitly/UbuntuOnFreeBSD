@@ -87,8 +87,8 @@ else
             
                        fi  
 
-                cd $tar &&  ./NVIDIA-Linux-x86_64-375.26.run -x
-                cd ..
+                      cd $tar &&  ./NVIDIA-Linux-x86_64-375.26.run -x
+                      cd ..
                       cp    $tar/NVIDIA-Linux-x86_64-375.26/libGL.so.375.26                  $ubuntu/usr/lib/x86_64-linux-gnu
                       ln -s libGL.so.375.26                                                  $ubuntu/usr/lib/x86_64-linux-gnu/libGL.so.1
                       cp    $tar/NVIDIA-Linux-x86_64-375.26/libnvidia-tls.so.375.26          $ubuntu/usr/lib/x86_64-linux-gnu
