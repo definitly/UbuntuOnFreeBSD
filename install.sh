@@ -67,3 +67,10 @@ if ! [ -d  "$tar"  ]; then
          rm  -R         $ubuntu/boot $ubuntu/dev $ubuntu/etc/fonts $ubuntu/home   $ubuntu/root $ubuntu/tmp \
                         $ubuntu/var/log  $ubuntu/var/tmp 
          mkdir -p       $ubuntu/var/run/shm
+
+
+
+
+
+      doas cp -R $ubuntu /compat
+      doas chroot /compat/$ubuntu /bin/dbus-uuidgen --ensure
