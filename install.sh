@@ -11,13 +11,12 @@ if ! [ "$ARCH" == "i386" -o "$ARCH" == "amd64" ]; then
 
  echo "Choose i386 or amd64"
     exit 1
-                 fi
+                    fi
 
-if ! [ "$UBUNTU_VERSION"  == "14.04" -o "$UBUNTU_VERSION" == "16.10" ]; then
+if ! [ "$UBUNTU_VERSION"  == "14.04" -o "$UBUNTU_VERSION" == "16.10" -0 "$UBUNTU_VERSION" == "17.04" ]; then
 
    echo "Choose 14.04 or 16.10"
-
-          exit 1;
+     exit 1
                      fi
 
 if ! [ -d  "$ubuntu"  ]; then
