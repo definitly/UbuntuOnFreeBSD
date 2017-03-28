@@ -66,10 +66,10 @@ if ! [ -d  "$tar"  ]; then
 
          rm  -R         $ubuntu/boot $ubuntu/dev $ubuntu/etc/fonts $ubuntu/home   $ubuntu/root $ubuntu/tmp \
                         $ubuntu/var/log  $ubuntu/var/tmp 
-         mkdir -p       $ubuntu/var/run/shm
+         mkdir -p       $ubuntu/var/run/shm 
+         ln -s bash     $ubuntu/bin/sh
 
-
-      if [ "$ARCH" == "i386" ];then 
+if [ "$ARCH" == "i386" ];then 
 
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-glcore)                     $ubuntu/usr/lib
