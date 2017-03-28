@@ -38,3 +38,27 @@ if ! [ -d  "$tar"  ]; then
            mkdir -p  $tar
 
        fi
+
+                for BIN_DISTFILES in $(cat listpackages_$UBUNTU_VERSION"_"$ARCH);do
+
+                        if ! [ -f $deb/$(echo  $BIN_DISTFILES | rev | sed -r 's/\/.+//' | rev) ]; then
+         
+                                 cd  $deb &&   fetch $MASTER_SITES$BIN_DISTFILES
+                                 cd ../
+ 
+                        fi 
+                 done
+
+   
+                for DEB   in $(cat listpackages_$UBUNTU_VERSION"_"$ARCH); do
+                   
+                    deb2targz $deb/$(echo  $DEB | rev | sed -r 's/\/.+//' | rev)
+
+                 done
+
+
+                for TARGZ in $(cat listpackages_$UBUNTU_VERSION"_"$ARCH);do  
+
+                    tar xf $deb/$(echo  $TARGZ  | rev | sed -r 's/\/.+//' | rev | sed s/.deb/.tar.*/) -C  $ubuntu 
+
+                 done
