@@ -69,8 +69,12 @@ if ! [ -d  "$tar"  ]; then
          mkdir -p       $ubuntu/var/run/shm
 
 
+      if [ "$ARCH" == "i386 ];then 
+
+        else
 
 
+            fi
 
       doas cp -R $ubuntu /compat
       doas chroot /compat/$ubuntu /bin/dbus-uuidgen --ensure
