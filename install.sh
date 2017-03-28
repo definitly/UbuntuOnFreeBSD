@@ -71,7 +71,7 @@ if ! [ -d  "$tar"  ]; then
 
       if [ "$ARCH" == "i386" ];then 
 
-                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib
+                 cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-glcore)                     $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-tls)                        $ubuntu/usr/lib
                  ln -s $(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)                          $ubuntu/usr/lib/libGL.so.1
@@ -87,7 +87,7 @@ else
             
                        fi  
 
-                      cd $tar &&  ./NVIDIA-Linux-x86_64-375.26.run -x
+                      cd    $tar &&  ./NVIDIA-Linux-x86_64-375.26.run -x
                       cd ..
                       cp    $tar/NVIDIA-Linux-x86_64-375.26/libGL.so.375.26                  $ubuntu/usr/lib/x86_64-linux-gnu
                       ln -s libGL.so.375.26                                                  $ubuntu/usr/lib/x86_64-linux-gnu/libGL.so.1
