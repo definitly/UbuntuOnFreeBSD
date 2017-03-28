@@ -9,6 +9,7 @@ deb=deb_$UBUNTU_VERSION"_"$ARCH
 
 if ! [ "$ARCH" == "i386" -o "$ARCH" =="amd64" ]; then
 
-
+ echo "Choose i386 or amd64"
+    exit 1;
                  fi
 
