@@ -78,8 +78,10 @@ if [ "$ARCH" == "i386" ];then
 
 else
 
-        
-                if ! [ -f "$tar/NVIDIA-Linux-x86_64-375.26.run" ]; then 
+                rm             $ubuntu/lib64/ld-linux-x86-64.so.2
+         ln -s          ../lib/x86_64-linux-gnu/$(ls $ubuntu/lib/x86_64-linux-gnu | grep ld-2.)  $ubuntu/lib64/ld-linux-x86-64.so.2 
+            
+    if ! [ -f "$tar/NVIDIA-Linux-x86_64-375.26.run" ]; then 
                 
                            cd $tar && fetch http://ru.download.nvidia.com/XFree86/Linux-x86_64/375.26/NVIDIA-Linux-x86_64-375.26.run
                            chmod +x NVIDIA-Linux-x86_64-375.26.run
