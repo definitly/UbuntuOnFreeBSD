@@ -18,3 +18,4 @@ if ! [ "$UBUNTU_VERSION"  == "14.04" -o "$UBUNTU_VERSION" == "16.10" ]; then
    echo "Choose 14.04 or 16.10"
 
           exit 1;
+                     fi
