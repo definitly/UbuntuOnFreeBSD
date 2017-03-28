@@ -62,3 +62,8 @@ if ! [ -d  "$tar"  ]; then
                     tar xf $deb/$(echo  $TARGZ  | rev | sed -r 's/\/.+//' | rev | sed s/.deb/.tar.*/) -C  $ubuntu 
 
                  done
+
+
+         rm  -R         $ubuntu/boot $ubuntu/dev $ubuntu/etc/fonts $ubuntu/home   $ubuntu/root $ubuntu/tmp \
+                        $ubuntu/var/log  $ubuntu/var/tmp 
+         mkdir -p       $ubuntu/var/run/shm
