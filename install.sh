@@ -19,3 +19,21 @@ if ! [ "$UBUNTU_VERSION"  == "14.04" -o "$UBUNTU_VERSION" == "16.10" ]; then
 
           exit 1;
                      fi
+if ! [ -d  "$ubuntu"  ]; then
+
+           mkdir -p  $ubuntu
+
+       fi
+
+
+if ! [ -d  "$deb"  ]; then
+
+           mkdir -p  $deb
+
+       fi
+
+if ! [ -d  "$tar"  ]; then
+
+           mkdir -p  $tar
+
+       fi
