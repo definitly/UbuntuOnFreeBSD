@@ -75,7 +75,7 @@ if [ "$ARCH" == "i386" ];then
                                    cd $tar && fetch ftp://ftp.tw.freebsd.org/pub/FreeBSD/FreeBSD/distfiles/flashplugin/9.0r48/libflashsupport.so && cd ../
    
                            fi
-
+                 cp $tar/libflashsupport.so                                                                        $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-glcore)                     $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-tls)                        $ubuntu/usr/lib

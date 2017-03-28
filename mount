@@ -18,46 +18,44 @@ ubuntu=ubuntu_$UBUNTU_VERSION"_"$ARCH
 
  
 
-    if  [ -z "$(mount | grep nullfs )" ]; then 
+      if [ -d /compat/$ubuntu/ ] ; then  
+ 
+
+                           if  [ -z "$(mount | grep nullfs )" ]; then 
+    
+                               doas mount -t nullfs /compat/$ubuntu/ /compat/linux/
+
+                            fi
+
+
+                            if  [ -z "$(mount | grep linprocfs)" ]; then 
        
-       doas mount -t nullfs /compat/$ubuntu/ /compat/linux/
-
-    fi
-
-
-    if  [ -z "$(mount | grep linprocfs)" ]; then 
-       
-       doas mount -t linprocfs linproc /compat/linux/proc
-
-    fi
+                                doas mount -t linprocfs linproc /compat/linux/proc
+                              
+                             fi
 
       
-    
-
-   if  [ -z "$(mount | grep tmpfs)" ]; then
+                            if  [ -z "$(mount | grep tmpfs)" ]; then
        
-  
-     doas mount -t tmpfs tmpfs /compat/linux/var/run/shm
+                                 doas mount -t tmpfs tmpfs /compat/linux/var/run/shm
                        
-   fi
+                             fi
 
 
 
-    if  [ -z "$(mount | grep linsysfs)" ]; then
+                              if  [ -z "$(mount | grep linsysfs)" ]; then
        
-       doas mount -t linsysfs linsys /compat/linux/sys
-                       
-   fi
+                                  doas mount -t linsysfs linsys /compat/linux/sys
+
+                               fi
+
+                        doas chmod 1777 /compat/linux/var/run/shm
+
+fi
 
 
 
-       
-       doas chmod 1777 /compat/linux/var/run/shm
-    
-  
 
-
-          
 echo -n "нажмите enter что бы отмонтировать разделы "
 read text
    
