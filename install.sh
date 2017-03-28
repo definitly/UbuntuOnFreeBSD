@@ -1,16 +1,16 @@
 #!/bin/sh
 
 MASTER_SITES=http://de.archive.ubuntu.com/ubuntu/
-UBUNTU_VERSION=(sed -n 1p config)
-ARCH=(sed -n 2p config)
+UBUNTU_VERSION=$(sed -n 1p config)
+ARCH=$(sed -n 2p config)
 ubuntu=ubuntu_$UBUNTU_VERSION"_"$ARCH
 tar=tar_$UBUNTU_VERSION"_"$ARCH
 deb=deb_$UBUNTU_VERSION"_"$ARCH
 
-if ! [ "$ARCH" == "i386" -o "$ARCH" =="amd64" ]; then
+if ! [ "$ARCH" == "i386" -o "$ARCH" == "amd64" ]; then
 
  echo "Choose i386 or amd64"
-    exit 1;
+    exit 1
                  fi
 
 if ! [ "$UBUNTU_VERSION"  == "14.04" -o "$UBUNTU_VERSION" == "16.10" ]; then
@@ -70,6 +70,12 @@ if ! [ -d  "$tar"  ]; then
          ln -s bash     $ubuntu/bin/sh
 
 if [ "$ARCH" == "i386" ];then 
+
+                   if ! [ -f "$tar/libflashsupport.so" ];then 
+
+                                   cd $tar && fetch ftp://ftp.tw.freebsd.org/pub/FreeBSD/FreeBSD/distfiles/flashplugin/9.0r48/libflashsupport.so && cd ../
+   
+                           fi
 
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-glcore)                     $ubuntu/usr/lib
