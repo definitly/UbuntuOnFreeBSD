@@ -69,7 +69,7 @@ if ! [ -d  "$tar"  ]; then
          mkdir -p       $ubuntu/var/run/shm
 
 
-      if [ "$ARCH" == "i386 ];then 
+      if [ "$ARCH" == "i386" ];then 
 
         else
 
