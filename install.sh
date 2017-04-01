@@ -75,6 +75,7 @@ if [ "$ARCH" == "i386" ];then
                                    cd $tar && fetch ftp://ftp.tw.freebsd.org/pub/FreeBSD/FreeBSD/distfiles/flashplugin/9.0r48/libflashsupport.so && cd ../
    
                            fi
+                
                  cp $tar/libflashsupport.so                                                                        $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libGL.so | head -3 | tail -n 1)       $ubuntu/usr/lib
                  cp /compat/linux/usr/lib/$(ls /compat/linux/usr/lib/ | grep libnvidia-glcore)                     $ubuntu/usr/lib
@@ -86,13 +87,13 @@ else
                 rm             $ubuntu/lib64/ld-linux-x86-64.so.2
                 ln -s          ../lib/x86_64-linux-gnu/$(ls $ubuntu/lib/x86_64-linux-gnu | grep ld-2.)  $ubuntu/lib64/ld-linux-x86-64.so.2 
             
-    if ! [ -f "$tar/NVIDIA-Linux-x86_64-375.26.run" ]; then 
+                    if ! [ -f "$tar/NVIDIA-Linux-x86_64-375.26.run" ]; then 
                 
                            cd $tar && fetch http://ru.download.nvidia.com/XFree86/Linux-x86_64/375.26/NVIDIA-Linux-x86_64-375.26.run
                            chmod +x NVIDIA-Linux-x86_64-375.26.run
                            cd ..
             
-                       fi  
+                             fi  
 
                       cd    $tar &&  ./NVIDIA-Linux-x86_64-375.26.run -x
                       cd ..
