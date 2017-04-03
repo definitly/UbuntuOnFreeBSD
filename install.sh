@@ -87,20 +87,20 @@ else
                 rm             $ubuntu/lib64/ld-linux-x86-64.so.2
                 ln -s          ../lib/x86_64-linux-gnu/$(ls $ubuntu/lib/x86_64-linux-gnu | grep ld-2.)  $ubuntu/lib64/ld-linux-x86-64.so.2 
             
-                    if ! [ -f "$tar/NVIDIA-Linux-x86_64-375.26.run" ]; then 
+                    if ! [ -f "$tar/NVIDIA-Linux-x86_64-375.39.run" ]; then 
                 
-                           cd $tar && fetch http://ru.download.nvidia.com/XFree86/Linux-x86_64/375.26/NVIDIA-Linux-x86_64-375.26.run
-                           chmod +x NVIDIA-Linux-x86_64-375.26.run
+                           cd $tar && fetch http://ru.download.nvidia.com/XFree86/Linux-x86_64/375.26/NVIDIA-Linux-x86_64-375.39.run
+                           chmod +x NVIDIA-Linux-x86_64-375.39.run
                            cd ..
             
                              fi  
 
-                      cd    $tar &&  ./NVIDIA-Linux-x86_64-375.26.run -x
+                      cd    $tar &&  ./NVIDIA-Linux-x86_64-375.39.run -x
                       cd ..
-                      cp    $tar/NVIDIA-Linux-x86_64-375.26/libGL.so.375.26                  $ubuntu/usr/lib/x86_64-linux-gnu
-                      ln    -s libGL.so.375.26                                               $ubuntu/usr/lib/x86_64-linux-gnu/libGL.so.1
-                      cp    $tar/NVIDIA-Linux-x86_64-375.26/libnvidia-tls.so.375.26          $ubuntu/usr/lib/x86_64-linux-gnu
-                      cp    $tar/NVIDIA-Linux-x86_64-375.26/libnvidia-glcore.so.375.26       $ubuntu/usr/lib/x86_64-linux-gnu
+                      cp    $tar/NVIDIA-Linux-x86_64-375.39/libGL.so.375.39                  $ubuntu/usr/lib/x86_64-linux-gnu
+                      ln    -s libGL.so.375.39                                               $ubuntu/usr/lib/x86_64-linux-gnu/libGL.so.1
+                      cp    $tar/NVIDIA-Linux-x86_64-375.26/libnvidia-tls.so.375.39          $ubuntu/usr/lib/x86_64-linux-gnu
+                      cp    $tar/NVIDIA-Linux-x86_64-375.26/libnvidia-glcore.so.375.39       $ubuntu/usr/lib/x86_64-linux-gnu
             fi
 
       doas cp -R $ubuntu /compat
